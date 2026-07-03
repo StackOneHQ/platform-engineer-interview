@@ -2,6 +2,8 @@
 
 Welcome, and thanks for making the time.
 
+> **⚠️ Confidential interview material.** This is a private StackOne hiring exercise. Please don't fork it, share it, or post it (or your review) publicly. It's a synthetic scenario for a fictional company ("Acme") — not real StackOne infrastructure or production code, and not a reference implementation to copy from.
+
 This repository is a small, deliberately realistic slice of the Acme platform. It is an **interview artifact, not a deployable app** — some things are stubbed and you should not expect `pnpm install` to produce a running system. Treat it the way you'd treat a real codebase you just got read access to.
 
 ## The task
