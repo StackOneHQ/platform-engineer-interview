@@ -11,6 +11,10 @@
     },
     "lint": {
       "outputs": []
+    },
+    "release": {
+      "dependsOn": ["build"],
+      "cache": false
     }
   }
 }

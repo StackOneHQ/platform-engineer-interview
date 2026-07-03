@@ -1,0 +1,44 @@
+# BigCorp self-host bundle.
+# Run in your own AWS account (or any Docker host) to stand up Acme.
+# Populate the referenced values in a local .env before `docker compose up`.
+version: "3.9"
+
+services:
+  orders-api:
+    image: ghcr.io/acme/orders-api:latest
+    environment:
+      NODE_ENV: production
+      PORT: "8080"
+      DATABASE_URL: ${DATABASE_URL}
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+      - redis
+
+  billing-api:
+    image: ghcr.io/acme/billing-api:latest
+    environment:
+      NODE_ENV: production
+      PORT: "8081"
+      DATABASE_URL: ${DATABASE_URL}
+      API_SECRET: ${API_SECRET}
+    ports:
+      - "8081:8081"
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: acme
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: core
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7
+
+volumes:
+  pgdata:
