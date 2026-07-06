@@ -17,12 +17,11 @@ Come to the call ready to:
 1. **Walk us through your review**, ranked by what worries you most about shipping this to prod. Assume you have merge rights and the author is waiting on you.
 2. **Talk through the CDK → Terraform migration.** We're mid-flight moving this stack from AWS CDK to Terraform on live production. How would you sequence it without downtime?
 3. **Reason about the monorepo CI and the self-host release.** We're standing up our first customer-run ("bring your own cloud") bundle for BigCorp. What do you make of the approach here?
-4. **Work an incident.** `docs/signals.md` is a snapshot from a live page. We'll dig into it together.
+4. **Work an incident.** We'll share a live monitoring snapshot on the call and work through it together — nothing to prep.
 
 ## Getting oriented
 
 - `docs/architecture.md` — how the platform runs today
-- `docs/signals.md` — the incident snapshot for part 4
 - `infra/` — AWS CDK (TypeScript)
 - `packages/` — services and the shared library
 - `.github/workflows/ci.yml` — CI
