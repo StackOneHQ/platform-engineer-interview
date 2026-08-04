@@ -10,14 +10,13 @@ This repository is a small, deliberately realistic slice of the Acme platform. I
 
 You're reviewing **PR #1** (`feat/add-billing-service` → `main`) as if it's going to production this afternoon. A teammate put it together quickly (with a lot of AI assistance) to unblock the BigCorp proof-of-concept. It touches infrastructure, CI, and a new service.
 
-Spend about **30 minutes** ahead of the call. Use any tools you like, including AI assistants — we do, and we'd rather see how you actually work than watch you pretend not to.
+Use any tools you like, including AI assistants — we do, and we'd rather see how you actually work than watch you pretend not to.
 
-Come to the call ready to:
+During the call you will:
 
-1. **Walk us through your review**, ranked by what worries you most about shipping this to prod. Assume you have merge rights and the author is waiting on you.
-2. **Talk through the CDK → Terraform migration.** We're mid-flight moving this stack from AWS CDK to Terraform on live production. How would you sequence it without downtime?
-3. **Reason about the monorepo CI and the self-host release.** We're standing up our first customer-run ("bring your own cloud") bundle for BigCorp. What do you make of the approach here?
-4. **Work an incident.** We'll share a live monitoring snapshot on the call and work through it together — nothing to prep.
+1. **Review the PR**, as you would do so an actual PR in a repo you're responsible for, highlighting what worries you most about shipping this to prod. Assume you have merge rights and the author is waiting on you. Focus on infra related changes before taking a look at the workflow changes in the PR. Use/mention all the tools you would normally leverage for such a review.
+2. **Talk through a CDK → Terraform migration.** We're mid-flight moving this stack from AWS CDK to Terraform on live production. How would you sequence it without downtime?
+3. **If we get time: Reason about the monorepo CI and the self-host release.** We're standing up our first customer-run ("bring your own cloud") bundle for BigCorp. What do you make of the approach here?
 
 ## Getting oriented
 
