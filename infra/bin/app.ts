@@ -3,6 +3,7 @@ import { App } from "aws-cdk-lib";
 import { NetworkStack } from "../lib/network-stack";
 import { DataStack } from "../lib/data-stack";
 import { OrdersServiceStack } from "../lib/orders-service-stack";
+import { BillingServiceStack } from "../lib/billing-service-stack";
 
 const app = new App();
 const env = { account: process.env.CDK_DEFAULT_ACCOUNT, region: "eu-west-2" };
@@ -19,6 +20,11 @@ new OrdersServiceStack(app, "AcmeOrders", {
   vpc: network.vpc,
   cluster: data.cluster,
   sharedSg: network.sharedSg,
+});
+
+new BillingServiceStack(app, "AcmeBilling", {
+  env,
+  vpc: network.vpc,
 });
 
 app.synth();

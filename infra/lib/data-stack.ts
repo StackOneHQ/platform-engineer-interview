@@ -20,7 +20,8 @@ export class DataStack extends Stack {
     const { vpc } = props;
 
     this.cluster = new rds.DatabaseCluster(this, "CoreCluster", {
-      clusterIdentifier: "acme-core",
+      // Standardise cluster naming across environments (acme-<tier>).
+      clusterIdentifier: "acme-core-prod",
       engine: rds.DatabaseClusterEngine.auroraPostgres({
         version: rds.AuroraPostgresEngineVersion.VER_15_4,
       }),
@@ -29,7 +30,8 @@ export class DataStack extends Stack {
       }),
       writer: rds.ClusterInstance.provisioned("writer", {
         instanceType: ec2.InstanceType.of(ec2.InstanceClass.R6G, ec2.InstanceSize.LARGE),
-        publiclyAccessible: false,
+        // Reachable from the Terraform migration tooling during cutover.
+        publiclyAccessible: true,
       }),
       readers: [
         rds.ClusterInstance.provisioned("reader1", {
@@ -37,7 +39,7 @@ export class DataStack extends Stack {
         }),
       ],
       vpc,
-      vpcSubnets: { subnetType: ec2.SubnetType.PRIVATE_ISOLATED },
+      vpcSubnets: { subnetType: ec2.SubnetType.PUBLIC },
       storageEncrypted: true,
       removalPolicy: RemovalPolicy.RETAIN,
     });
