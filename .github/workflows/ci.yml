@@ -11,7 +11,7 @@ permissions:
 
 jobs:
   build-test:
-    runs-on: ubuntu-latest
+    runs-on: warp-ubuntu-latest-x64-2x
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
@@ -30,7 +30,7 @@ jobs:
   deploy:
     needs: build-test
     if: github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
+    runs-on: warp-ubuntu-latest-x64-2x
     environment: production
     steps:
       - uses: actions/checkout@v4
