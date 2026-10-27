@@ -17,9 +17,9 @@ jobs:
       - uses: pnpm/action-setup@v4
         with:
           version: 9
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
         with:
-          node-version: 20
+          node-version-file: package.json
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm turbo run lint
@@ -37,9 +37,9 @@ jobs:
       - uses: pnpm/action-setup@v4
         with:
           version: 9
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
         with:
-          node-version: 20
+          node-version-file: package.json
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       # Federated OIDC into the deploy role — no long-lived AWS keys in CI.
